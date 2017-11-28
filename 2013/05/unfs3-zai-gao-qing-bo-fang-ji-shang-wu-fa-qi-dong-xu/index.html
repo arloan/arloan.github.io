@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>unfs3在高清播放机上无法启动（续） - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="通过samba访问高清播放机的共享目录极慢，测试了一下竟然只有可怜的5~600KBps。一开始怀疑是读取NTFS太慢，然后又测试了一下EXT4分区，速度没有分别，可见不是文件系统格式的原因。1234~ # topMem: 462528K used, 5528K free, 0K shrd, 3580K buff, 15">
+<meta name="keywords" content="unfs3,nfs,portmap,高清播放机">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="unfs3在高清播放机上无法启动（续）">
+<meta property="og:url" content="http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="通过samba访问高清播放机的共享目录极慢，测试了一下竟然只有可怜的5~600KBps。一开始怀疑是读取NTFS太慢，然后又测试了一下EXT4分区，速度没有分别，可见不是文件系统格式的原因。1234~ # topMem: 462528K used, 5528K free, 0K shrd, 3580K buff, 151248K cachedCPU:  70% usr  23% sys   0%">
+<meta property="og:updated_time" content="2015-08-20T09:26:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="unfs3在高清播放机上无法启动（续）">
+<meta name="twitter:description" content="通过samba访问高清播放机的共享目录极慢，测试了一下竟然只有可怜的5~600KBps。一开始怀疑是读取NTFS太慢，然后又测试了一下EXT4分区，速度没有分别，可见不是文件系统格式的原因。1234~ # topMem: 462528K used, 5528K free, 0K shrd, 3580K buff, 151248K cachedCPU:  70% usr  23% sys   0%">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            unfs3在高清播放机上无法启动（续）
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sun May 05 2013 19:24:00 GMT+0800">
+	
+		    May 05, 2013
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/技术/">技术</a>, <a class="category-link" href="/categories/技术/软件/">软件</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>通过samba访问高清播放机的共享目录极慢，测试了一下竟然只有可怜的5~600KBps。一开始怀疑是读取NTFS太慢，然后又测试了一下EXT4分区，速度没有分别，可见不是文件系统格式的原因。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~ # top</span><br><span class="line">Mem: 462528K used, 5528K free, 0K shrd, 3580K buff, 151248K cached</span><br><span class="line">CPU:  70% usr  23% sys   0% nic   0% idle   0% io   0%<span class="built_in"> irq </span>  5% sirq</span><br><span class="line">Load average: 8.32 8.61 8.33 2/136 15558</span><br></pre></td></tr></table></figure></p>
+<p>从top输出来看，CPU始终处于接近100%的状态，load也非常的高，也不知道是top信息不准确还是因为高清机的主任务DvdPlayer把CPU占满了。top有问题是确定的，因为所有进程的%CPU全部报告为0，不过却不能因此认为总的CPU占用率也报告错误就是了。虽然对于单核单CPU系统来说load高得惊人，但实际上telnet上去console的反应倒是不算很慢。</p>
+<p>CPU占用过高/load太高导致磁盘IO太慢也是可能的，因此先使用dd测试了一下NTFS分区的文件读取速度（不太在意写速度）：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@localhost /innerhd/tmp</span><br><span class="line"># dd if=GK-HD320.firmware<span class="number">.20121107</span>.rar of=/dev/null bs=<span class="number">1</span>M</span><br><span class="line"><span class="number">163</span>+<span class="number">1</span> records in</span><br><span class="line"><span class="number">163</span>+<span class="number">1</span> records out</span><br><span class="line"><span class="number">171938398</span> bytes (<span class="number">164.0</span>MB) copied, <span class="number">7.956217</span> seconds, <span class="number">20.6</span>MB/s</span><br><span class="line">root@localhost /innerhd/tmp</span><br><span class="line"># dd if=GK-HD320.firmware<span class="number">.20121107</span>.rar of=/dev/null bs=<span class="number">8</span>K</span><br><span class="line"><span class="number">20988</span>+<span class="number">1</span> records in</span><br><span class="line"><span class="number">20988</span>+<span class="number">1</span> records out</span><br><span class="line"><span class="number">171938398</span> bytes (<span class="number">164.0</span>MB) copied, <span class="number">7.028130</span> seconds, <span class="number">23.3</span>MB/s</span><br><span class="line">root@localhost /innerhd/tmp</span><br></pre></td></tr></table></figure>
+<p>可见虽然磁盘IO在高CPU占用下速度实在不济(2xMBps)，不过也不至于慢到数百K的状况。有点惊讶的是bs=8K比bs=1M要快。看来也许确实samba太慢了，所以还是决定再折腾一下NFS。</p>
+<p>下载到portmap5.0beta的源码后，发现是from_local.c中，find_local()函数的这个部分报错：</p>
+<figure class="highlight c"><figcaption><span>find_local()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    * Get list of network interfaces. We use a huge buffer to allow for the</span></span><br><span class="line"><span class="comment">    * presence of non-IP interfaces.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">if</span> ((sock = socket(PF_INET, SOCK_DGRAM, <span class="number">0</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"socket"</span>);</span><br><span class="line">         <span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>竟然是调用socket出错了。root用户运行竟然会Permission denied还真是不太可能，于是ps看了一下原来portmap会自动切换到daemon用户身份。daemon用户不能打开socket也很荒谬，也许是系统的setuid/seteuid有问题？无法确定。直接修改/etc/passwd，将daemon的uid/gid均改成0，再次运行portmap，发现其pid仍然为1，看来此路不通。</p>
+<p>编译5.0beta运行发现其报告rpc用户不存在，fall back为bin用户，看来这个行为跟optware中的4.5不一致了。修改/etc/passwd，增加rpc用户，uid/gid为5,1，仍然一样的Permission denied。修改uid/gid为0，BINGO! unfs3成功注册了。看来只能使用5.0beta替换掉optware的4.5来用了。</p>
+<p>退出native toolchain的编译环境，发现无法运行，因为系统的ulibc是0.9.30，编译环境是0.9.28。于是在启动脚本中加入<code>export LD_LIBRARY_PATH=/path/to/toolchain/lib</code>，搞定收工。</p>
+<p>在笔记本上的ubuntu虚拟机中mount上测试速度：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ dd if=/mnt/nfs/tmp/GK-HD320.firmware<span class="number">.20121107</span>.rar of=/dev/null bs=<span class="number">64</span>K</span><br><span class="line"><span class="number">2623</span>+<span class="number">1</span> records in</span><br><span class="line"><span class="number">2623</span>+<span class="number">1</span> records out</span><br><span class="line"><span class="number">171938398</span> bytes (<span class="number">172</span> MB) copied, <span class="number">101.602</span> s, <span class="number">1.7</span> MB/s</span><br></pre></td></tr></table></figure></p>
+<p>不过在Windows7上mount之后，速度仍然一塌糊涂，比samba几乎没有提高，问题在哪里呢？!</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/nfs/">nfs</a> <a class="tag tag--primary tag--small t-link" href="/tags/portmap/">portmap</a> <a class="tag tag--primary tag--small t-link" href="/tags/unfs3/">unfs3</a> <a class="tag tag--primary tag--small t-link" href="/tags/高清播放机/">高清播放机</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/05/XCode-Organizer-Archives-wu-fa-xian-shi-iOS-ying-yong-tu-biao/"  data-tooltip="XCode Organizer - Archives 无法显示iOS应用图标">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/" data-tooltip="xfdown在嵌入式linux上无法下载的问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/05/XCode-Organizer-Archives-wu-fa-xian-shi-iOS-ying-yong-tu-biao/"  data-tooltip="XCode Organizer - Archives 无法显示iOS应用图标">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/" data-tooltip="xfdown在嵌入式linux上无法下载的问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/&amp;title=unfs3在高清播放机上无法启动（续）">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>

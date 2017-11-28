@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>Bluestacks 的调整与优化 - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Table of Contents前言修改内存使用打开 VT-x 特性修改虚拟机窗口大小和安卓分辨率和色深安卓与 Windows 之间的文件交换键盘快捷键输入中文 前言Bluestacks 是一个在 PC 和 Mac OS 上免费的安卓模拟器，目的是为了让用户在 Windows 上玩安卓游戏，当然，跑安卓应用也是没问题">
+<meta name="keywords" content="Android,Bluestacks">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Bluestacks 的调整与优化">
+<meta property="og:url" content="http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="Table of Contents前言修改内存使用打开 VT-x 特性修改虚拟机窗口大小和安卓分辨率和色深安卓与 Windows 之间的文件交换键盘快捷键输入中文 前言Bluestacks 是一个在 PC 和 Mac OS 上免费的安卓模拟器，目的是为了让用户在 Windows 上玩安卓游戏，当然，跑安卓应用也是没问题的。说它是个模拟器其实并不完全正确，因为它使用的是 x86 的安卓核心，因此实际">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/bluestacks-shared-folders.png">
+<meta property="og:updated_time" content="2015-08-29T06:25:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bluestacks 的调整与优化">
+<meta name="twitter:description" content="Table of Contents前言修改内存使用打开 VT-x 特性修改虚拟机窗口大小和安卓分辨率和色深安卓与 Windows 之间的文件交换键盘快捷键输入中文 前言Bluestacks 是一个在 PC 和 Mac OS 上免费的安卓模拟器，目的是为了让用户在 Windows 上玩安卓游戏，当然，跑安卓应用也是没问题的。说它是个模拟器其实并不完全正确，因为它使用的是 x86 的安卓核心，因此实际">
+<meta name="twitter:image" content="http://blog.imandysoft.net/comm-res/images/bluestacks-shared-folders.png">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Bluestacks 的调整与优化
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sat Aug 29 2015 13:07:11 GMT+0800">
+	
+		    Aug 29, 2015
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/技术/">技术</a>, <a class="category-link" href="/categories/技术/软件/">软件</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改内存使用"><span class="toc-text">修改内存使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开-VT-x-特性"><span class="toc-text">打开 VT-x 特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改虚拟机窗口大小和安卓分辨率和色深"><span class="toc-text">修改虚拟机窗口大小和安卓分辨率和色深</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安卓与-Windows-之间的文件交换"><span class="toc-text">安卓与 Windows 之间的文件交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#键盘快捷键"><span class="toc-text">键盘快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入中文"><span class="toc-text">输入中文</span></a></li></ol>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><a href="http://www.bluestacks.com" target="_blank" rel="noopener">Bluestacks</a> 是一个在 PC 和 Mac OS 上免费的安卓模拟器，目的是为了让用户在 Windows 上玩安卓游戏，当然，跑安卓应用也是没问题的。说它是个模拟器其实并不完全正确，因为它使用的是 x86 的安卓核心，因此实际上它是一个安卓虚拟机。考虑到 PC 的屏幕方向，我们更多的是把它当作一个安卓平板来使用。Bluestacks 的运行速度很快，也可以当作安卓开发测试的安卓设备来使用，比 Google 官方的安卓模拟器无论是性能方面还是便利性方面都强太多了。</p>
+<p>然而安装完 Bluestacks 之后，它并没有提供任何的可选项调整界面，官网上也几乎都没有任何说明，本文所有调整内容均需要直接操作 Windows 的注册表，请小白自行评估风险，作者概不负责。</p>
+<p>PS. 在国内访问其<a href="http://www.bluestacks.com" target="_blank" rel="noopener">主页</a>始终会重定向到<a href="http://www.bluestacks.cn" target="_blank" rel="noopener">中文版</a>。</p>
+<h3 id="修改内存使用"><a href="#修改内存使用" class="headerlink" title="修改内存使用"></a>修改内存使用</h3><p>默认的情况下，Bluestacks 安装时会根据系统内存大小，自行决定安卓虚拟机的内存使用量。例如在我的 16GB Ram Windows 7 上，装完之后其内存上限设定为 1856M。修改方法是，打开注册表编辑器，定位到 <code>HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\Android</code>，在右侧窗口修改 <code>Memory</code> 条目即可。注意你用的是十进制还是16进制，别搞错了。修改完毕之后，需要重启 Bluestacks 生效。</p>
+<h3 id="打开-VT-x-特性"><a href="#打开-VT-x-特性" class="headerlink" title="打开 VT-x 特性"></a>打开 VT-x 特性</h3><p>VT-x 是 intel 运用 Virtualization 虚拟化技术中的一个指令集，是CPU的硬件虚拟化技术，可以同时提升虚拟化效率和虚拟机的灵活性、稳定性。由于这个技术不是所有CPU型号都支持，所以 Bluestacks 默认是不开的。</p>
+<p>打开注册表编辑器，定位到 <code>HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\Android</code>，在右侧窗口中修改 <code>VirtType</code> 的值为 <code>vtx</code>，然后再定位到 <code>HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\Android\Config</code>，修改右侧窗口中 <code>ForceVMLegacyMode</code> 的值为 0 即可。当然，修改完毕之后，需要重启 Bluestacks。</p>
+<p>在我的 SandyBridge i5-2410M 上，打开 VT-x 之后，性能有比较明显的提升。</p>
+<h3 id="修改虚拟机窗口大小和安卓分辨率和色深"><a href="#修改虚拟机窗口大小和安卓分辨率和色深" class="headerlink" title="修改虚拟机窗口大小和安卓分辨率和色深"></a>修改虚拟机窗口大小和安卓分辨率和色深</h3><p>如果你想让 Bluestacks 在全屏和窗口化之间切换的话，按 F11 就可以了。但是默认的窗口比较小，如果你拿来跑安卓应用为主的话，应该是窗口化比较方便，于是就会希望把窗口调大一点。</p>
+<p>打开注册表编辑器，定位到 <code>HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\Android\FrameBuffer\0</code>，右侧窗口中有几个值可以调整：</p>
+<ul>
+<li><strong>Depth</strong>: 这个是色深，默认16bit，可以试试改成32bit，不过我没改啦。</li>
+<li><strong>FullScreen</strong>: 顾名思义，不过有 F11，就不必改它了。</li>
+<li><strong>GuestHeight</strong> 和 <strong>GuestWidth</strong>: 这个是安卓系统的分辨率。如果你主要使用窗口化，那么建议设置为跟 Bluestacks 的窗口大小一致，这样安卓系统画面就不需要插值，比较清晰。主要全屏用的话，可以设置成你显示器的物理分辨率，这样全屏的时候最清晰。</li>
+<li><strong>WindowHeight</strong> 和 <strong>WindowWidth</strong>: 这个是窗口化之后，Bluestacks 窗口的大小。注意，这个大小不是窗口的 FrameSize，而是 ClientSize 噢！也就是内容大小，不包含窗口边框（但是毫无疑问的包含了那个安卓虚拟按键条部分）。</li>
+</ul>
+<h3 id="安卓与-Windows-之间的文件交换"><a href="#安卓与-Windows-之间的文件交换" class="headerlink" title="安卓与 Windows 之间的文件交换"></a>安卓与 Windows 之间的文件交换</h3><p>Bluestacks 默认就设置了几个与 Windows 共享的目录，安卓下的路径位于 <code>/sdcard/windows</code> 下面：<br><img src="/comm-res/images/bluestacks-shared-folders.png" alt="shared folders"></p>
+<ul>
+<li><strong>BstSharedFolder</strong>: 在 Windows 中的位置是 <code>%bluestack-data-dir%BlueStacks\UserData\SharedFolder</code></li>
+<li><strong>InputMapper</strong>: 在 Windows 中的位置是 <code>%bluestack-data-dir%BlueStacks\UserData\InputMapper</code></li>
+<li><strong>Pictures</strong>: 在 Windows 中的位置是当前用户个人主目录里的图片目录，对于 Windows 7，位于 <code>C:\Users\&lt;your-user-name&gt;\Pictures</code></li>
+<li><strong>PublicPictures</strong>: 在 Windows 中的位置是所有用户的公共文档目录， 对于 Windows 7，位于<code>C:\Users\Public\Pictures</code></li>
+<li><strong>Documents</strong>: 在 Windows 中的位置是当前用户个人主目录里的文档目录，对于 Windows 7，位于 <code>C:\Users\&lt;your-user-name&gt;\Documents</code></li>
+<li><strong>PublicDocuments</strong>: 在 Windows 中的位置是所有用户的公共文档目录，对于 Windows 7，位于 <code>C:\Users\Public\Documents</code><br>此外，U盘之类的插到 Windows 之后，Bluestacks 会自动把U盘驱动器加到共享目录，比如U盘盘符是F，那么在安卓里面，其路径是 <code>/sdcard/windows/Dynamic-Volume-F</code></li>
+</ul>
+<p>PS. ES-Explorer 图标界面丑到爆啊。。。</p>
+<h3 id="键盘快捷键"><a href="#键盘快捷键" class="headerlink" title="键盘快捷键"></a>键盘快捷键</h3><p>Bluestacks 官方只介绍了一个快捷键：Ctrl+Alt+M 打开针对当前安卓应用的键盘映射工具，详细解说在<a href="http://support.bluestacks.com/hc/en-us/articles/204194239-How-to-map-keys-on-any-app-on-the-BlueStacks-App-player-" target="_blank" rel="noopener">这里</a></p>
+<p>其他我摸索出来的快捷键有：</p>
+<ul>
+<li><strong>Esc</strong>: 相当于安卓的 back 软键</li>
+<li><strong>Esc + Esc</strong>: 相当于安卓的 home 软键</li>
+<li><strong>Ctrl + ↑、↓、→、←</strong>: 分别相当于单指向四个方向滑动屏幕，但是位置似乎是固定的，大约屏幕的上1/4处</li>
+</ul>
+<p>没有摸索出相当于安卓那两个层叠方框按键的对应键盘快捷键，不爽，这样就不能关掉虚拟键那栏，本来屏幕纵向空间就捉急，该死的 16:9。</p>
+<h3 id="输入中文"><a href="#输入中文" class="headerlink" title="输入中文"></a>输入中文</h3><p>装个中文输入法就OK了。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Android/">Android</a> <a class="tag tag--primary tag--small t-link" href="/tags/Bluestacks/">Bluestacks</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/flush-DNS-cache-in-Mac-OS-X/"  data-tooltip="如何在 Mac OS X 中重置 DNS 缓存">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/fix-Nim-issue-with-TinyCC-as-backend/" data-tooltip="修复 Nim 使用 TinyCC 作为后端的问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/flush-DNS-cache-in-Mac-OS-X/"  data-tooltip="如何在 Mac OS X 中重置 DNS 缓存">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/fix-Nim-issue-with-TinyCC-as-backend/" data-tooltip="修复 Nim 使用 TinyCC 作为后端的问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2015/08/bluestacks-tuning-and-optimizing/&amp;title=Bluestacks 的调整与优化">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>

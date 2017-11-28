@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>恢复了一个Ghost误操作的硬盘 - 感谢VMWare - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="声明：本文非教程，模仿本文造成的一切后果与作者无关！ 下午一个同事MM说昨天晚上在家里用Ghost恢复系统，结果发现原本三个分区的80G硬盘只剩下一个接近80G的分区了，问我有没有恢复的办法。经过简单的思考，推测是由于她错误的选择了Ghost的Disk From Image功能（因为她只备份了C盘，所以其实应当使用Pa">
+<meta name="keywords" content="修理,硬盘,VMWare,DiskGen">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+<meta property="og:url" content="http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="声明：本文非教程，模仿本文造成的一切后果与作者无关！ 下午一个同事MM说昨天晚上在家里用Ghost恢复系统，结果发现原本三个分区的80G硬盘只剩下一个接近80G的分区了，问我有没有恢复的办法。经过简单的思考，推测是由于她错误的选择了Ghost的Disk From Image功能（因为她只备份了C盘，所以其实应当使用Partition From Image来恢复）。所幸她的资料都保存在D盘和E盘，因">
+<meta property="og:updated_time" content="2015-08-20T08:43:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+<meta name="twitter:description" content="声明：本文非教程，模仿本文造成的一切后果与作者无关！ 下午一个同事MM说昨天晚上在家里用Ghost恢复系统，结果发现原本三个分区的80G硬盘只剩下一个接近80G的分区了，问我有没有恢复的办法。经过简单的思考，推测是由于她错误的选择了Ghost的Disk From Image功能（因为她只备份了C盘，所以其实应当使用Partition From Image来恢复）。所幸她的资料都保存在D盘和E盘，因">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            恢复了一个Ghost误操作的硬盘 - 感谢VMWare
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Mon Oct 09 2006 21:31:00 GMT+0800">
+	
+		    Oct 09, 2006
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/技术/">技术</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><strong>声明：本文非教程，模仿本文造成的一切后果与作者无关！</strong></p>
+<p>下午一个同事MM说昨天晚上在家里用Ghost恢复系统，结果发现原本三个分区的80G硬盘只剩下一个接近80G的分区了，问我有没有恢复的办法。经过简单的思考，推测是由于她错误的选择了Ghost的Disk From Image功能（因为她只备份了C盘，所以其实应当使用Partition From Image来恢复）。所幸她的资料都保存在D盘和E盘，因此推测只要能恢复分区表的后面部分，资料应当可以找回。</p>
+<p>第一次做这种事情，自然应当尽量谨慎。为了能在恢复过程中有后悔药吃，决定将故障硬盘全盘拷贝一份出来，然后在拷贝上做恢复工作。这样即使能力不足或者操作失当，也不会造成任何不良后果。</p>
+<p>故障硬盘是Seagate 80G的，但是手头并没有空闲的80G以上硬盘来做备份。怎么办呢？思考了几秒种之后，决定使用虚拟机软件 - VMWare。于是把故障硬盘挂到我的机器上，启动进入Windows，通过磁盘管理器发现故障硬盘只有一个70多G的FAT32格式主分区。</p>
+<p>接下来需要考虑用什么软件做磁盘拷贝。Ghost是不行的，因为它的原理是做文件拷贝，而为了做出一个和故障硬盘精确一致的拷贝，显然需要一个扇区拷贝工具，于是dd就成了当然之选。</p>
+<p>dd传统上是linux下的软件，正好我的机器上有个RH9的虚拟机。于是打开VMWare，给Linux虚拟机添加两个IDE硬盘：一个选择物理磁盘，即那个故障硬盘（下称磁盘A）；另外一个则创建新的80G虚拟磁盘（下称磁盘B）。我的机器上也只有一个80G硬盘，显然空间不够用，幸好内网上还有个3TB的文件服务器，于是把这个80G的虚拟硬盘建在了这个文件服务器上。</p>
+<p>启动虚拟机，VMWare警告说有个虚拟磁盘文件在远程，会严重影响性能。不管它，点OK继续。进入Linux后，硬盘A和B的设备名应当分别为<code>/dev/hda</code>，<code>/dev/hdb</code>（虚拟机原本的唯一硬盘是SCSI的，<code>/dev/sda</code>）。为了验证一下，我尝试把硬盘A mount起来。输入命令：<code>mount -t vfat -o ro /dev/hda1 /mnt</code>，结果mount报错，说什么不是合法的块设备。这可真是奇怪了，可怜我对Linux的设备管理不是很熟，这下就无法确认<code>/dev/hda</code>是不是那块硬盘了。无奈，决定使用Windows。</p>
+<p>正好我还有个Windows 2000 Advanced Server的虚拟机。于是把A和B添加到Windows虚拟机中，启动。下载了dd的windows移植版本，先输入<code>dd --list</code>找到源磁盘和目标磁盘的设备名，然后输入拷贝命令：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd.exe <span class="attribute">bs</span>=256k <span class="attribute">if</span>=\\?\Device\HarddiskVolume3 <span class="attribute">of</span>=\\?\Device\HarddiskVolume4 --progress</span><br></pre></td></tr></table></figure>
+<p>可怜我的100M网卡+虚拟机，足足花了有3个多小时才复制完成。然后关闭windows虚拟机，删掉多余的硬盘，只剩下刚才拷贝好的虚拟硬盘B，然后用软盘镜像启动虚拟机到DOS下。在DOS下启动一个叫diskgen（曾用名DiskMan）的国产软件，选择“工具”菜单下的“重建分区表”命令，然后在弹出的菜单中选择“手工模式”。</p>
+<p>同事MM告知硬盘应当有三个分区，分别大约是10G，34G,30G。根据这个信息，就可以很容易的判断DiskGen找出来的分区是否应当跳过还是保留了。当DiskGen扫描到12%左右的时候，DiskGen报告发现一个扩展分区，大约64G。不错，就是它了！选择“保留”，进度一下子到了93%（为什么不是100%呢？因为这个拷贝版硬盘是80G，而那个出问题的物理硬盘是80,000,000,000字节~=74.5G）。完成以后F8保存分区表，ESC退出。</p>
+<p>由于懒得再起虚拟机，于是用VMWare免费提供的虚拟磁盘挂载工具vmware-mount.exe把刚才修复的虚拟硬盘加载起来：很好，后面的两个分区内容完整无缺！</p>
+<p>用虚拟机验证了DiskGen能够恢复该硬盘后，剩下的事情就很好办了：把我的真实主机启动到DOS下，启动DiskGen，开始恢复那块真实的故障硬盘，几分钟后，恢复完毕。</p>
+<p>事情原本就应当结束了，不过同事MM害怕回家Ghost又会操作失误，于是我只好帮人帮到底了，于是把第一个分区创建好（DiskGen恢复后，第一个分区的位置成了为使用空间），再用Ghost把系统备份从第二个分区恢复了过去，最后把这个分区设置成活动状态。大功告成了！</p>
+<p>最后再唠叨几句吧。其实最后的这个过程还发生了个插曲，有耐心看到这里的读者也许都快没耐心了吧？哈哈。由于Ghost只能把镜像恢复到一个已经存在的分区中，因此必须先把第一个分区创建出来。不幸的事，我是用U盘启动到DOS的，而这个U盘是USB-HDD模式。也就是说，启动以后，DOS认为这个U盘是个硬盘。在这种情况下，我手头的Partition Magic 8.0 DOS版似乎对付不了这个情况，一直停止在启动界面进不去。-_-! 无奈，只好启动到windows，用磁盘管理器创建了这个分区。</p>
+<p>那么，怎么Ghost呢？我并没有Windows版的Ghost，而且即使有，似乎也还是得重启一遍？（不确定，有哪位读者知道？）麻烦。于是，我再次想到了用VMWare。在虚拟机中Ghost完成后，关掉虚拟机，在设备管理器中停掉这块硬盘后，先拔电源，再拔数据线（<strong>危险！切勿模仿！</strong>），搞定！</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/DiskGen/">DiskGen</a> <a class="tag tag--primary tag--small t-link" href="/tags/VMWare/">VMWare</a> <a class="tag tag--primary tag--small t-link" href="/tags/修理/">修理</a> <a class="tag tag--primary tag--small t-link" href="/tags/硬盘/">硬盘</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2006/10/rang-zi-ji-de-USB-she-bei-mian-yu-lun-wei-chuan-bo-bing-du-de-gong-ju/"  data-tooltip="让自己的USB设备免于沦为传播病毒的工具！">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2006/10/chuang-zao-zi-ji-de-bian-cheng-zi-ti/" data-tooltip="创造自己的编程字体">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2006/10/rang-zi-ji-de-USB-she-bei-mian-yu-lun-wei-chuan-bo-bing-du-de-gong-ju/"  data-tooltip="让自己的USB设备免于沦为传播病毒的工具！">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2006/10/chuang-zao-zi-ji-de-bian-cheng-zi-ti/" data-tooltip="创造自己的编程字体">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2006/10/hui-fu-le-yi-ge-Ghost-wu-cao-zuo-de-ying-pan-gan-xie-VMWare/&amp;title=恢复了一个Ghost误操作的硬盘 - 感谢VMWare">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>

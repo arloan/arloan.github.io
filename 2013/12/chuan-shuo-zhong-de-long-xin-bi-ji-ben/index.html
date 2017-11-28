@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>传说中的龙芯笔记本 - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="偶然在网上看到有龙芯2F笔记本1.2折团购，不含运费279块软妹币，于是想着还不到一个树莓派的价钱，还有键盘显示器，怎么想怎么划算，于是就买了一个来当玩具好了。 话说顺丰陆运也还挺快，没几天就送到了：   上面第二张左上角那个不起眼的类似学习机的就是传说中的龙芯笔记本喽。包裹送来的时候，套在笔记本外包装外面有个很厚的充">
+<meta name="keywords" content="笔记本,龙芯,linux">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="传说中的龙芯笔记本">
+<meta property="og:url" content="http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="偶然在网上看到有龙芯2F笔记本1.2折团购，不含运费279块软妹币，于是想着还不到一个树莓派的价钱，还有键盘显示器，怎么想怎么划算，于是就买了一个来当玩具好了。 话说顺丰陆运也还挺快，没几天就送到了：   上面第二张左上角那个不起眼的类似学习机的就是传说中的龙芯笔记本喽。包裹送来的时候，套在笔记本外包装外面有个很厚的充气垫，发货的人还挺用心的。 启动起来桌面有个导航应用，很土的样子：  右侧有10">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson1.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson2.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson3.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson4.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson5.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson6.jpg">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-desktop1.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-desktop2.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-desktop3.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-desktop4.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-desktop5.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-sysinfo1.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-sysinfo2.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-sysinfo3.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/loongson-sysinfo4.png">
+<meta property="og:updated_time" content="2015-08-20T08:47:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="传说中的龙芯笔记本">
+<meta name="twitter:description" content="偶然在网上看到有龙芯2F笔记本1.2折团购，不含运费279块软妹币，于是想着还不到一个树莓派的价钱，还有键盘显示器，怎么想怎么划算，于是就买了一个来当玩具好了。 话说顺丰陆运也还挺快，没几天就送到了：   上面第二张左上角那个不起眼的类似学习机的就是传说中的龙芯笔记本喽。包裹送来的时候，套在笔记本外包装外面有个很厚的充气垫，发货的人还挺用心的。 启动起来桌面有个导航应用，很土的样子：  右侧有10">
+<meta name="twitter:image" content="http://blog.imandysoft.net/comm-res/images/loongson1.jpg">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            传说中的龙芯笔记本
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Tue Dec 10 2013 18:06:16 GMT+0800">
+	
+		    Dec 10, 2013
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/技术/">技术</a>, <a class="category-link" href="/categories/技术/硬件/">硬件</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>偶然在<a href="http://www.loongsonclub.cn/tg/" title="龙芯笔记本团购" target="_blank" rel="noopener">网上</a>看到有龙芯2F笔记本1.2折团购，不含运费279块软妹币，于是想着还不到一个树莓派的价钱，还有键盘显示器，怎么想怎么划算，于是就买了一个来当玩具好了。</p>
+<p>话说顺丰陆运也还挺快，没几天就送到了：</p>
+<p><img src="/comm-res/images/loongson1.jpg" alt="loongson1"></p>
+<p><img src="/comm-res/images/loongson2.jpg" alt="loongson2"></p>
+<p>上面第二张左上角那个不起眼的类似学习机的就是传说中的龙芯笔记本喽。包裹送来的时候，套在笔记本外包装外面有个很厚的充气垫，发货的人还挺用心的。</p>
+<p>启动起来桌面有个导航应用，很土的样子：</p>
+<p><img src="/comm-res/images/loongson3.jpg" alt="loongson3"></p>
+<p>右侧有10/100M以太网卡，没有千兆比较可惜，不过也许龙芯的性能还撑不起千兆也说不定。此外还有两个USB2.0接口，一个耳机口，一个麦克口。</p>
+<p><img src="/comm-res/images/loongson4.jpg" alt="loongson4"></p>
+<p>左侧有扇热口，电源口，VGA，一个USB2.0口和一个SD卡读卡器。总的来说，扩展性还凑合，超过了我以前用过的一个ATOM N450上网本的水平（多一个USB和一个读卡器）。</p>
+<p><img src="/comm-res/images/loongson5.jpg" alt="loongson5"></p>
+<p>键盘有点小坑爹，很小，可能80%大小？哪位有数据的评论一下。不光小，你看~/`这个键已经安排到ESC和F1之间去了，Tab/Capslock都小的可怜，更坑爹的是右边没有Ctrl键，却有个windows右击键，这个不是一般的坑爹，作为一个MIPS64平台，只支持Linux系统，不给右Ctrl给个鼠标右键，只能说设计者的脑子被猪拱了。</p>
+<p><img src="/comm-res/images/loongson6.jpg" alt="loongson6"></p>
+<p>自带的共创Linux下面，实际上fn+F1休眠不好使，按了跟没按一样没任何反应。</p>
+<p>一开始不知道无线咋连，systray那里那个联网图标里右键打开无线没用，后来在网上搜索一番才知道必须fn+F5来开启硬件开关。一次可能不行，多按几次，直到笔记本C面底部右侧那个无线的LED亮了就知道打开了。</p>
+<p>Wifi不支持802.11n，只支持11b/g，所以注意你的路由器不能设置成11n-only。</p>
+<p>下面这个是共创Linux默认桌面应用，好（真）萌（土）~</p>
+<p><img src="/comm-res/images/loongson-desktop1.png" alt="loongson-desktop1"></p>
+<p><img src="/comm-res/images/loongson-desktop2.png" alt="loongson-desktop2"></p>
+<p><img src="/comm-res/images/loongson-desktop3.png" alt="loongson-desktop3"></p>
+<p><img src="/comm-res/images/loongson-desktop4.png" alt="loongson-desktop4"></p>
+<p><img src="/comm-res/images/loongson-desktop5.png" alt="loongson-desktop5"></p>
+<p>看看系统信息</p>
+<p><img src="/comm-res/images/loongson-sysinfo1.png" alt="loongson-sysinfo1"></p>
+<p><img src="/comm-res/images/loongson-sysinfo2.png" alt="loongson-sysinfo2"></p>
+<p><img src="/comm-res/images/loongson-sysinfo3.png" alt="loongson-sysinfo3"></p>
+<p><img src="/comm-res/images/loongson-sysinfo4.png" alt="loongson-sysinfo4"></p>
+<p>命令行查看CPU等资料：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yee@Loong:~$ cat /proc/cpuinfo</span><br><span class="line"></span><br><span class="line">system<span class="built_in"> type </span>: lemote-yeeloong</span><br><span class="line">processor : 0</span><br><span class="line">cpu model : ICT Loongson-2 V0.3 FPU V0.1</span><br><span class="line">BogoMIPS : 528.38</span><br><span class="line">wait instruction : <span class="literal">yes</span></span><br><span class="line">microsecond timers : <span class="literal">yes</span></span><br><span class="line">tlb_entries : 64</span><br><span class="line">extra interrupt vector : <span class="literal">no</span></span><br><span class="line">hardware watchpoint : <span class="literal">no</span></span><br><span class="line">ASEs implemented :</span><br><span class="line">shadow register sets : 1</span><br><span class="line">core : 0</span><br><span class="line">VCED exceptions : <span class="keyword">not</span> available</span><br><span class="line">VCEI exceptions : <span class="keyword">not</span> available</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yee<span class="variable">@Loong</span><span class="symbol">:~</span><span class="variable">$ </span>uname -a</span><br><span class="line"></span><br><span class="line">Linux Loong <span class="number">2.6</span>.<span class="number">27.1</span> <span class="comment">#643 Sun Jan 3 11:38:33 CST 2010 mips64 GNU/Linux</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">yee<span class="meta">@Loong</span>:~$ cat <span class="regexp">/proc/</span>meminfo</span><br><span class="line"><span class="string">MemTotal:</span> <span class="number">1028880</span> kB</span><br><span class="line"><span class="string">MemFree:</span> <span class="number">135200</span> kB</span><br><span class="line"><span class="string">Buffers:</span> <span class="number">165440</span> kB</span><br><span class="line"><span class="string">Cached:</span> <span class="number">463552</span> kB</span><br><span class="line"><span class="string">SwapCached:</span> <span class="number">0</span> kB</span><br><span class="line"><span class="string">Active:</span> <span class="number">554288</span> kB</span><br><span class="line"><span class="string">Inactive:</span> <span class="number">270160</span> kB</span><br><span class="line"><span class="string">SwapTotal:</span> <span class="number">1024096</span> kB</span><br><span class="line"><span class="string">SwapFree:</span> <span class="number">1024096</span> kB</span><br><span class="line"><span class="string">Dirty:</span> <span class="number">272</span> kB</span><br><span class="line"><span class="string">Writeback:</span> <span class="number">0</span> kB</span><br><span class="line"><span class="string">AnonPages:</span> <span class="number">195488</span> kB</span><br><span class="line"><span class="string">Mapped:</span> <span class="number">192208</span> kB</span><br><span class="line"><span class="string">Slab:</span> <span class="number">58112</span> kB</span><br><span class="line"><span class="string">SReclaimable:</span> <span class="number">46416</span> kB</span><br><span class="line"><span class="string">SUnreclaim:</span> <span class="number">11696</span> kB</span><br><span class="line"><span class="string">PageTables:</span> <span class="number">4336</span> kB</span><br><span class="line"><span class="string">NFS_Unstable:</span> <span class="number">0</span> kB</span><br><span class="line"><span class="string">Bounce:</span> <span class="number">0</span> kB</span><br><span class="line"><span class="string">WritebackTmp:</span> <span class="number">0</span> kB</span><br><span class="line"><span class="string">CommitLimit:</span> <span class="number">1538528</span> kB</span><br><span class="line"><span class="string">Committed_AS:</span> <span class="number">432672</span> kB</span><br><span class="line"><span class="string">VmallocTotal:</span> <span class="number">137438953472</span> kB</span><br><span class="line"><span class="string">VmallocUsed:</span> <span class="number">2464</span> kB</span><br><span class="line"><span class="string">VmallocChunk:</span> <span class="number">137438950944</span> kB</span><br></pre></td></tr></table></figure>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yee@Loong:~$ cat /<span class="keyword">proc</span>/partitions</span><br><span class="line">major<span class="title"> minor</span> #blocks<span class="title"> name</span></span><br><span class="line"><span class="title"></span></span><br><span class="line"><span class="title">3</span> 0 8003520<span class="title"> hda</span></span><br><span class="line"><span class="title">3</span> 1 131543<span class="title"> hda1</span></span><br><span class="line"><span class="title">3</span> 2 2048256<span class="title"> hda2</span></span><br><span class="line"><span class="title">3</span> 3 1024128<span class="title"> hda3</span></span><br><span class="line"><span class="title">3</span> 4 1<span class="title"> hda4</span></span><br><span class="line"><span class="title">3</span> 5 4799591<span class="title"> hda5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yee@Loong:~$ sudo fdisk -l /dev/hda</span><br><span class="line"></span><br><span class="line">Disk /dev/hda:<span class="number"> 8195 </span>MB,<span class="number"> 8195604480 </span>bytes</span><br><span class="line">16 heads,<span class="number"> 63 </span>sectors/track,<span class="number"> 15880 </span>cylinders</span><br><span class="line">Units = cylinders of<span class="number"> 1008 </span>*<span class="number"> 512 </span>=<span class="number"> 516096 </span>bytes</span><br><span class="line">Disk identifier: 0xc9869f34</span><br><span class="line"></span><br><span class="line">Device Boot Start End Blocks Id System</span><br><span class="line">/dev/hda1<span class="number"> 1 </span>261 131543+<span class="number"> 83 </span>Linux</span><br><span class="line">/dev/hda2<span class="number"> 262 </span>4325<span class="number"> 2048256 </span>83 Linux</span><br><span class="line">/dev/hda3<span class="number"> 4326 </span>6357<span class="number"> 1024128 </span>82 Linux swap / Solaris</span><br><span class="line">/dev/hda4<span class="number"> 6358 </span>15880<span class="number"> 4799592 </span>5 Extended</span><br><span class="line">/dev/hda5<span class="number"> 6358 </span>15880 4799591+<span class="number"> 83 </span>Linux</span><br><span class="line">yee@Loong:~$</span><br></pre></td></tr></table></figure>
+<p>这个自带Linux版本太古老，是debian5派生版本，估计软件都没源了，改天装成debian7去。</p>
+<p>今天就到这里喽。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/linux/">linux</a> <a class="tag tag--primary tag--small t-link" href="/tags/笔记本/">笔记本</a> <a class="tag tag--primary tag--small t-link" href="/tags/龙芯/">龙芯</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/12/bei-fen-long-xin-bi-ji-ben-de-xi-tong-huan-yuan/"  data-tooltip="备份龙芯笔记本的系统还原">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/12/svn-ignore-ming-ling-xing-ji-ben-yong-fa/" data-tooltip="svn:ignore 命令行基本用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/12/bei-fen-long-xin-bi-ji-ben-de-xi-tong-huan-yuan/"  data-tooltip="备份龙芯笔记本的系统还原">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/12/svn-ignore-ming-ling-xing-ji-ben-yong-fa/" data-tooltip="svn:ignore 命令行基本用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/12/chuan-shuo-zhong-de-long-xin-bi-ji-ben/&amp;title=传说中的龙芯笔记本">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>

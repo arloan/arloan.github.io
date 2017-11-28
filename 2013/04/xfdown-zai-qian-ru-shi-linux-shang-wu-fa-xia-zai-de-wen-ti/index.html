@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>xfdown在嵌入式linux上无法下载的问题 - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="在上一篇博文中解决了xfdown的运行之后，又发现其无法下载任何文件。回车下载报错： [ DownloadEngineFactory.cc:97] errorCode=1 Initializing EpollEventPoll failed.  Try --event-poll=select ... xfdown使用a">
+<meta name="keywords" content="高清播放机,xfdown,QQ旋风,aria2c">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="xfdown在嵌入式linux上无法下载的问题">
+<meta property="og:url" content="http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="在上一篇博文中解决了xfdown的运行之后，又发现其无法下载任何文件。回车下载报错： [ DownloadEngineFactory.cc:97] errorCode=1 Initializing EpollEventPoll failed.  Try --event-poll=select ... xfdown使用aria2c这个并行下载工具进行下载。按照提示，需要修改其event-poll的参">
+<meta property="og:updated_time" content="2015-08-20T10:08:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xfdown在嵌入式linux上无法下载的问题">
+<meta name="twitter:description" content="在上一篇博文中解决了xfdown的运行之后，又发现其无法下载任何文件。回车下载报错： [ DownloadEngineFactory.cc:97] errorCode=1 Initializing EpollEventPoll failed.  Try --event-poll=select ... xfdown使用aria2c这个并行下载工具进行下载。按照提示，需要修改其event-poll的参">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            xfdown在嵌入式linux上无法下载的问题
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Fri Apr 26 2013 16:48:00 GMT+0800">
+	
+		    Apr 26, 2013
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/技术/">技术</a>, <a class="category-link" href="/categories/技术/软件/">软件</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>在上一篇博文中解决了xfdown的运行之后，又发现其无法下载任何文件。回车下载报错：</p>
+<p><code>[ DownloadEngineFactory.cc:97] errorCode=1 Initializing EpollEventPoll failed.  Try --event-poll=select ...</code></p>
+<p>xfdown使用aria2c这个并行下载工具进行下载。按照提示，需要修改其event-poll的参数。用文本编辑器打开xfdown_api.py，定位到114行，将该行：<br><code>cmd=[&#39;aria2c&#39;, &#39;-c&#39;, &#39;-s10&#39;, &#39;-x10&#39;, &#39;--header&#39;, &#39;Cookie:ptisp=edu; FTN5K=%s&#39;%self.filecom[i], &#39;%s&#39;%self.filehttp[i]]</code><br>修改为<br><code>cmd=[&#39;aria2c&#39;, &#39;-c&#39;, &#39;-s10&#39;, &#39;-x10&#39;, &#39;--event-poll&#39;, &#39;select&#39;, &#39;--header&#39;, &#39;Cookie:ptisp=edu; FTN5K=%s&#39;%self.filecom[i], &#39;%s&#39;%self.filehttp[i]]</code></p>
+<p>保存退出，xfdown即可正常工作了。下载完一个文件之后可能会报告：<br><code>notify-send error,you should have libnotify-bin installed.</code><br>不过不影响。这个事libnotify-bin包没有移植到optware的原因，暂时无法解决。有兴趣的童鞋可以自行移植一把试试。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/QQ旋风/">QQ旋风</a> <a class="tag tag--primary tag--small t-link" href="/tags/aria2c/">aria2c</a> <a class="tag tag--primary tag--small t-link" href="/tags/xfdown/">xfdown</a> <a class="tag tag--primary tag--small t-link" href="/tags/高清播放机/">高清播放机</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/"  data-tooltip="unfs3在高清播放机上无法启动（续）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/04/xfdown-bu-jian-rong-python2-6-he-qian-ru-shi-linux-de-jie-jue-ban-fa/" data-tooltip="xfdown不兼容python2.6和嵌入式linux的解决办法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/05/unfs3-zai-gao-qing-bo-fang-ji-shang-wu-fa-qi-dong-xu/"  data-tooltip="unfs3在高清播放机上无法启动（续）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2013/04/xfdown-bu-jian-rong-python2-6-he-qian-ru-shi-linux-de-jie-jue-ban-fa/" data-tooltip="xfdown不兼容python2.6和嵌入式linux的解决办法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2013/04/xfdown-zai-qian-ru-shi-linux-shang-wu-fa-xia-zai-de-wen-ti/&amp;title=xfdown在嵌入式linux上无法下载的问题">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>

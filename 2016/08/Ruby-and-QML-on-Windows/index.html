@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanooo life">
+    <title>Ruby and QML on Windows - Nanooo life</title>
+    <meta name="author" content="Stone Pen">
+    
+        <link rel="icon" href="/assets/images/favicon.png">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="ruby-qml is a QML / Qt Quick wrapper for Ruby. It provides bindings between QML and Ruby and enables you to use Qt Quick-based GUI from Ruby, while it only supp">
+<meta name="keywords" content="ruby,qml,Qt">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Ruby and QML on Windows">
+<meta property="og:url" content="http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/index.html">
+<meta property="og:site_name" content="Nanooo life">
+<meta property="og:description" content="ruby-qml is a QML / Qt Quick wrapper for Ruby. It provides bindings between QML and Ruby and enables you to use Qt Quick-based GUI from Ruby, while it only supports macOS and Linux officially. Since Q">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/2016-08/qmlbind.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/2016-08/first-load.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/2016-08/resized.png">
+<meta property="og:image" content="http://blog.imandysoft.net/comm-res/images/2016-08/ruby-qml-OK.png">
+<meta property="og:updated_time" content="2016-08-06T21:07:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ruby and QML on Windows">
+<meta name="twitter:description" content="ruby-qml is a QML / Qt Quick wrapper for Ruby. It provides bindings between QML and Ruby and enables you to use Qt Quick-based GUI from Ruby, while it only supports macOS and Linux officially. Since Q">
+<meta name="twitter:image" content="http://blog.imandysoft.net/comm-res/images/2016-08/qmlbind.png">
+    
+    
+    
+        <meta property="og:image" content="/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Nanooo life</a>
+    </h1>
+    
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
+        </a>
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?67f03728f825dc2f341ea63cac6c5837";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</header>
+
+            <nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
+                
+            </a>
+            <span class="sidebar-profile-name">Stone Pen</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Ruby and QML on Windows
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sat Aug 06 2016 18:25:51 GMT+0800">
+	
+		    Aug 06, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/software/">software</a>, <a class="category-link" href="/categories/software/development/">development</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><a href="http://seanchas116.github.io/ruby-qml/" target="_blank" rel="noopener">ruby-qml</a> is a QML / Qt Quick wrapper for Ruby. It provides bindings between QML and Ruby and enables you to use Qt Quick-based GUI from Ruby, while it only supports macOS and Linux officially. Since Qt and ruby both supports Windows, so I think it highly possible can be modified to support Windows.</p>
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h3><ul>
+<li>Ruby 2.1 or later</li>
+<li>Qt 5.4 or later</li>
+</ul>
+<p>In this blog, I’m using <code>ruby 2.1.6p336 (2015-04-13 revision 50298) [i386-mingw32]</code> and Qt 5.7.0 open source MinGW 5.3.0 32-bit version (can be downloaded <a href="https://www.qt.io/download-open-source/" target="_blank" rel="noopener">here</a>).</p>
+<h3 id="Install-procedure"><a href="#Install-procedure" class="headerlink" title="Install procedure:"></a>Install procedure:</h3><ol>
+<li><p>Install Qt:<br>Download and run Qt install pack. I installed Qt in folder <code>D:\devel\Qt</code>.</p>
+</li>
+<li><p>Download original ruby-qml gem:<br>You can install ruby-qml gem directly from you online gem source site, which will obviously fail:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\stone&gt;gem install qml -- --with-qmake=d:/devel/qt/Qt5.7.0/5.7/mingw53_32/bin/qmake.exe</span><br><span class="line">Temporarily enhancing PATH to include DevKit...</span><br><span class="line">Building native extensions with: '--with-qmake=d:/devel/qt/Qt5.7.0/5.7/mingw53_32/bin/qmake.exe'</span><br><span class="line">This could take a while...</span><br><span class="line">ERROR:  Error installing qml:</span><br><span class="line">        ERROR: Failed to build gem native extension.</span><br><span class="line"></span><br><span class="line">...(ignored)</span><br><span class="line"></span><br><span class="line">C:\Users\xxxxx&gt;</span><br></pre></td></tr></table></figure>
+<p>But even failed, the gem will be saved in rubygem’s cache directory. On my system, it’s <code>D:\rubies\ruby-2.1.6-i386-mingw32\lib\ruby\gems\2.1.0\cache</code>.</p>
+<p>– OR –</p>
+<p>You may just use <code>gem fetch qml</code> to download it.</p>
+</li>
+<li><p>Modify the gem:<br>Unpack the downloaded gem: <code>gem unpack qml</code>, then modify <code>ext\qml\extconf.rb</code>.<br>Find line <code>when QML::Platform.windows?</code>, under <code># TODO</code>, add following line:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$LDFLAGS &lt;&lt; <span class="string">" -L<span class="subst">#&#123;qmlbind_dir&#125;</span>/release"</span></span><br></pre></td></tr></table></figure>
+<p>Modify <code>ext\qml\lib\libqmlbind\qmlbind\include\qmlbind\interface.h</code>,  add the following lines after <code>#include &quot;qmlbind_global.h&quot;</code>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> interface</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> interface</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>This is because some Window header file defines <code>interface</code> as <code>struct</code>, while ruby-qml has some functions with parameter named <code>interface</code>. Obviously, there is another solution by rename those parameters, while I’m just too lazy to find those.</p>
+<p><strong>Qt 5.7 only</strong><br>The official Qt 5.7.0 is compiled by MinGW gcc 5.3.0, which is not compatible with DevKit 4.7.2 used for compiling ruby gem native extensions. Qt 5.4 ~ 5.6.1 are build by MinGW gcc version 4.x, which is compatible with DevKit, so this step is not needed.</p>
+<p>The load error for <code>qmlbind.dll</code> built with DevKit for Qt5.7 is like this:</p>
+<p><img src="/comm-res/images/2016-08/qmlbind.png" alt="qml.so Load Error"></p>
+<p>To overcome this problem, modify <code>ext\qml\extconf.rb</code>, after line <code>qmake_opts = debug_enabled ? &#39;CONFIG+=debug&#39; : &#39;&#39;</code>, add the following lines:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ccpath = with_config(<span class="string">'ccpath'</span>)</span><br><span class="line"><span class="keyword">if</span> ccpath.length &gt; <span class="number">0</span></span><br><span class="line">  qmake_opts += <span class="string">" QMAKE_CC=<span class="subst">#&#123;ccpath&#125;</span>/gcc QMAKE_CXX=<span class="subst">#&#123;ccpath&#125;</span>/g++ QMAKE_LINK=<span class="subst">#&#123;ccpath&#125;</span>/g++"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rebuild the gem:<br>Under command prompt, CD to the folder containing unpacked gem, then create gemspec file from original gem:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem spec &lt;path/to/qml-1.0.2.gem&gt; --ruby &gt; qml-1.0.2.gemspec</span><br></pre></td></tr></table></figure>
+<p>Then rebuild the gem:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem build qml-1.0.2.gemspec</span><br></pre></td></tr></table></figure>
+<p>You should get a new gem file <code>qml-1.0.2.gem</code> in the same folder of <code>qml-1.0.2.gemspec</code> about 490KB.</p>
+</li>
+<li><p>Install the modified local gem:<br>Install the gem you just re-built with following command:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -l qml-1.0.2.gem -- --with-qmake=&lt;/path/to/qmake.exe&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>Qt 5.7 only</strong><br>Use this command instead:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -l qml-1.0.2.gem -- --with-qmake=&lt;/path/to/qmake.exe&gt; --with-ccpath=&lt;/path/to/Qt/containing/MinGW-gcc/residential/path&gt;</span><br></pre></td></tr></table></figure>
+<p>On my machine, qmake.exe path is <code>d:/devel/qt/Qt5.7.0/5.7/mingw53_32/bin/qmake.exe</code>, Qt’s MinGW gcc’s containing folder is <code>d:/devel/qt/Qt5.7.0/Tools/mingw530_32/bin</code>, so the install command is:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -l qml-1.0.2.gem -- --with-qmake=d:/devel/qt/Qt5.7.0/5.7/mingw53_32/bin/qmake.exe --with-ccpath=d:/devel/qt/Qt5.7.0/Tools/mingw530_32/bin</span><br></pre></td></tr></table></figure>
+<p>Now the gem should compiles and installs smoothly.</p>
+</li>
+</ol>
+<h3 id="Post-install"><a href="#Post-install" class="headerlink" title="Post install"></a>Post install</h3><p>Though the gem installs OK, you ruby-qml script will not run still: <code>require &#39;qml&#39;</code> will fail like this:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d:\xxxxxx\ruby&gt;ruby qml-hello.rb</span><br><span class="line">d:/rubies/ruby-2.1.6-i386-mingw32/lib/ruby/gems/2.1.0/gems/qml-1.0.2/lib/qml/qml.rb:1:in `require_relative': 126: The specified module could not be found.   - d:/rubies/ruby-2.1.6-i386-mingw32/lib/ruby/gems/2.1.0/gems/qml-1.0.2/ext/qml/qml.so (LoadError)</span><br><span class="line">        from d:/rubies/ruby-2.1.6-i386-mingw32/lib/ruby/gems/2.1.0/gems/qml-1.0.2/lib/qml/qml.rb:1:in `&lt;top (required)&gt;'</span><br><span class="line"></span><br><span class="line">...(ignored)</span><br></pre></td></tr></table></figure></p>
+<p>This is because the native extension <code>qml.so</code> depends on <code>qmlbind.dll</code>(part of the gem), while the later is not in DLL resolution path list. Plus, <code>qmlbind.dll</code> depends on Qt’s runtime library files, which are also not in system’s PATH list. So, copy <code>qmlbind.dll</code> from <code>&lt;qml-gem-dir&gt;/ext/qml/lib/libqmlbind/qmlbind/release</code> to Qt’s runtime library folder (on my system is <code>d:/devel/qt/Qt5.7.0/5.7/mingw53_32/bin</code>), then add this folder in you system’s PATH list. Now, my ruby-qml finally runs!</p>
+<h3 id="Qt-Render-Error"><a href="#Qt-Render-Error" class="headerlink" title="Qt Render Error"></a>Qt Render Error</h3><p>After above steps, my ruby-qml script runs, while some render errors show up in the command prompt window. Worse, the I resize application window, the client area of the window becomes black-bricked, and the render errors continue bumping out, as shown below:</p>
+<p><img src="/comm-res/images/2016-08/first-load.png" alt="First Run"></p>
+<p><img src="/comm-res/images/2016-08/resized.png" alt="Resized Window"></p>
+<p>This seems to be a compatible problem with my Intel Sandy Bridge GPU. After some investigation, I replaced <code>libEGL.dll</code> and <code>libGLESv2.dll</code> in Qt’s runtime library folder with the same files from QtCreator 3.4.2, finally, everything is OK!</p>
+<p><img src="/comm-res/images/2016-08/ruby-qml-OK.png" alt=""></p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Qt/">Qt</a> <a class="tag tag--primary tag--small t-link" href="/tags/qml/">qml</a> <a class="tag tag--primary tag--small t-link" href="/tags/ruby/">ruby</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/proxychains-conflicting-types-for-getnameinfo/" data-tooltip="libproxychains.c: error: conflicting types for &#39;getnameinfo&#39;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Stone Pen. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/proxychains-conflicting-types-for-getnameinfo/" data-tooltip="libproxychains.c: error: conflicting types for &#39;getnameinfo&#39;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <!--
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        -->
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至印象笔记" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-file-text-o"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" data-tooltip="分享至有道笔记" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-pencil-square"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <!--
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+        -->
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=weixin&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-weixin"></i><span>分享到微信</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=ydnote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-pencil-square"></i><span>分享到有道笔记</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://www.jiathis.com/send/?webid=evernote&amp;uid=2055449&amp;url=http://blog.imandysoft.net/2016/08/Ruby-and-QML-on-Windows/&amp;title=Ruby and QML on Windows">
+                <i class="fa fa-file-text-o"></i><span>分享到印象笔记</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
+        
+            <h4 id="about-card-name">Stone Pen</h4>
+        
+            <h5 id="about-card-bio"><p><strong>life is short, talk is cheap</strong></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Just Think</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                P.R.China
+            </h5>
+        
+    </div>
+</div>
+
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-stone';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = 'https://a.disquscdn.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','DvL4tSpvEW6nfsf_zs8e','2.0.0');
+    </script>
+
+
+</html>
